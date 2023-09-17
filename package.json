@@ -2,8 +2,9 @@
   "name": "react",
   "version": "1.0.0",
   "description": "this is my react app",
-  "main": "App.js",
   "scripts": {
+    "start":"parcel index.html",
+    "bulid":"parcel bulid index.html",
     "test": "jest"
   },
   "author": "",
