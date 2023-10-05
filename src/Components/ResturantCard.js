@@ -1,7 +1,8 @@
 const ResturantCard =(props)=>{
-    console.log("props",props)
     const {resturant } = props
-    console.log("resturant",resturant)
+    const type="type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
+
+  
     return (
         <div className="res-card">
         <img className="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resturant.info.cloudinaryImageId} alt="burger"/>
