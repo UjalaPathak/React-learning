@@ -8,6 +8,7 @@ import AboutUs from "./Components/AboutUs"
 import ContactUs from "./Components/ContactUs"
 import Cart from "./Components/Cart"
 import Error from "./Components/Error"
+import RestaurantMenu from "./Components/RestaurantMenu"
 
 
 //jsx->syntax (html or xml like)
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter(
                 {
                     path:'/cart',
                     element:<Cart/>
+                },
+                {
+                    path:'/resturants/:resId',
+                    element:<RestaurantMenu/>
                 }
             ],
             errorElement:<Error/>

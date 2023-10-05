@@ -16,15 +16,9 @@ const Body =()=>{
 
     const json = await data.json()
     //optional chaining
-
-    setListofRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-
-    setFilteredlistofRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredlistofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
    }
-
-
-
-
     return (
         <div className="body-container">
         <div className="search-input">
