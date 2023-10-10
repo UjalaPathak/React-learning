@@ -1,6 +1,5 @@
 const ResturantCard =(props)=>{
     const {resturant } = props
-    const type="type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget"
 
   
     return (
