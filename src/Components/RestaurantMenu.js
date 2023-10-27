@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import RestaurantMenuCards from "../ResturantMenuCards";
 import RestaurantCategory from "./ResturantCategory";
 import FooterForMenu from "./FooterForMenu/FooterForMenu";
+import { useParams } from "react-router-dom";
 
 
 const RestaurantMenu = () => {
 
     const [menuData, SetMenuData] = useState("")
     const [resturantInfo,setResturantInfo]= useState("")
+    const {resId}= useParams()
+    console.log("resId",resId)
 
 
     useEffect(() => {
@@ -20,10 +23,11 @@ const RestaurantMenu = () => {
     //     console.log("json",json)
 
     // }
+    const url="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5601649&lng=73.8031335&restaurantId={resId}"
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5601649&lng=73.8031335&restaurantId=4868&catalog_qa=undefined&submitAction=ENTER"
+                url.replace("{resId}", resId)
             );
 
             if (!response.ok) {
