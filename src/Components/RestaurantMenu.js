@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantMenuCards from "../ResturantMenuCards";
 import RestaurantCategory from "./ResturantCategory";
-import FooterForMenu from "./FooterForMenu/FooterForMenu";
 import { useParams } from "react-router-dom";
 import useResturantMenu from "../utils/useResturantMenu";
 
@@ -11,7 +9,8 @@ const RestaurantMenu = () => {
   //custom hooks
   const restInfo = useResturantMenu(resId);
 
-  const categories =restInfo[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  const categories =
+    restInfo[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.["card"]?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"

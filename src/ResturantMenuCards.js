@@ -1,5 +1,4 @@
-import { useState } from "react";
-import MenuFooter from "./Components/FooterForMenu/FooterForMenu";
+
 
 const RestaurantMenuCards = (props) => {
   const { name, price, defaultPrice, description, imageId } =
