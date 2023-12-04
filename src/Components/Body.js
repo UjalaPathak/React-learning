@@ -63,7 +63,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="res-container">
+      <div className="grid grid-cols-4 lg:gap-4 justify-items-center">
         {listofRestaurants &&
           listofRestaurants.map((resturant) => (
             <Link to={"/resturant/" + resturant.info.id}>

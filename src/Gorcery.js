@@ -1,7 +1,7 @@
 import React from "react";
 
 function Gorcery() {
-  return <div>Gorcery hai </div>;
+  return <div>Gorcery</div>;
 }
 
 export default Gorcery;
