@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import RestaurantCategory from "./ResturantCategory";
 import { useParams } from "react-router-dom";
 import useResturantMenu from "../utils/useResturantMenu";
-
+import { FaStar } from "react-icons/fa";
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
@@ -31,22 +31,45 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div className="menu">
-      <div className="name-resturant">
-        <h3>{restInfo[0]?.card.card.info?.name}</h3>
-        <div className="rating-card">
-          <h3>{restInfo[0]?.card.card.info?.avgRating}</h3>
-          <h4>{restInfo[0]?.card.card.info?.totalRatingsString}</h4>
+    <div className="m-auto">
+      <div className="w-6/12  mx-auto">
+        <div className="inline-block">
+          <span className="font-semibold text-xl">
+            {restInfo[0]?.card.card.info?.name}
+          </span>
+          <p className="mb-1 text-xs text-gray-600/75">
+            {restInfo[0]?.card.card.info?.cuisines.join(", ")}
+          </p>
+          <p className=" text-xs text-gray-600/75">
+            {restInfo[0]?.card.card.info?.locality}
+          </p>
+        </div>
+
+        <div className="border border-solid border-gray-300 shadow-md rounded-md flex flex-col text-center p-2 max-w-max float-right">
+          <div>
+            <span className="inline-block mr-2">
+              <FaStar style={{ color: "green" }} />
+            </span>
+            <span className="font-semibold">
+              {restInfo[0]?.card.card.info?.avgRating}
+            </span>
+            <hr />
+            <span className="font-semibold">
+              {restInfo[0]?.card.card.info?.totalRatingsString}
+            </span>
+          </div>
         </div>
       </div>
+      <div className="w-6/12 mx-auto">
+        <div className="border-dashed border-[1px] border-gray-400"></div>
+        <ul className="flex ">
+          <li className="m-6">37 MINS</li>
+          <li className="m-6">
+            {restInfo[0]?.card.card.info?.costForTwoMessage}
+          </li>
+        </ul>
+      </div>
 
-      <p>{restInfo[0]?.card.card.info?.cuisines.join(",")}</p>
-      <p>{restInfo[0]?.card.card.info?.locality}</p>
-      <hr />
-      <ul>
-        <li>37 MINS</li>
-        <li>{restInfo[0]?.card.card.info?.costForTwoMessage}</li>
-      </ul>
       <hr />
       {categories &&
         categories.map((category, index) => (
