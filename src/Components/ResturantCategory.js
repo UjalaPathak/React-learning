@@ -4,9 +4,9 @@ import RestaurantMenuCards from "../ResturantMenuCards";
 const RestaurantCategory = (props) => {
   const itemCard = props.category.card.card;
 
-  const [show, setShowItem] = useState(false);
+  // const [show, setShowItem] = useState(false);
   const handleClick = () => {
-    setShowItem(!show);
+    props.setShowIndex();
   };
 
   return (
@@ -23,10 +23,10 @@ const RestaurantCategory = (props) => {
         <span>🔽</span>
       </div>
       <div>
-        {show &&
+        {props.ShowItems &&
           itemCard &&
-          itemCard.itemCards.map((items) => (
-            <RestaurantMenuCards items={items} />
+          itemCard.itemCards.map((items, index) => (
+            <RestaurantMenuCards key={index} items={items} />
           ))}
       </div>
     </div>

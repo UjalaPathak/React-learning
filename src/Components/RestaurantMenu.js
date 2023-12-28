@@ -30,6 +30,9 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.RestaurantAddress"
     );
 
+  const [showIndex, setShowIndex] = useState(-1);
+  console.log("showOndex", showIndex);
+
   return (
     <div className="m-auto">
       <div className="w-6/12  mx-auto">
@@ -73,7 +76,14 @@ const RestaurantMenu = () => {
       <hr />
       {categories &&
         categories.map((category, index) => (
-          <RestaurantCategory key={index} category={category} />
+          //controlled componenet ->Parent is controlling
+          <RestaurantCategory
+            key={category.card.card.id}
+            category={category}
+            ShowItems={index == showIndex ? true : false}
+            //showItems={index == showIndex ? true : false}
+            setShowIndex={() => setShowIndex(index)}
+          />
         ))}
     </div>
   );

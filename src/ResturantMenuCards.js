@@ -5,7 +5,7 @@ const RestaurantMenuCards = (props) => {
   return (
     <div className="border-b-2 border-gray-400 flex flex-row  justify-between items-center">
       <div className="w-9/12">
-        <div className="py-2">
+        <div className="py-2  flex flex-col">
           <span>{name}</span>
           <span>
             Rs.
