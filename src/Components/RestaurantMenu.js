@@ -9,12 +9,18 @@ const RestaurantMenu = () => {
   //custom hooks
   const restInfo = useResturantMenu(resId);
 
-  const categories =
-    restInfo[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (c) =>
-        c.card?.["card"]?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-    );
+  console.log("restInfo", restInfo);
+
+  // const categories =
+  //   restInfo[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].filter(
+  //     (c) =>
+  //       c.card?.["card"]?.["@type"] ===
+  //       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  //   );
+  const categories = restInfo[4]?.groupedCard?.cardGroupMap?.REGULAR.card;
+
+  const categoriesTitle =
+    restInfo[4]?.groupedCard?.cardGroupMap?.REGULAR.cards[1]?.card?.card?.title;
 
   const restaurantLicense =
     restInfo[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -31,7 +37,6 @@ const RestaurantMenu = () => {
     );
 
   const [showIndex, setShowIndex] = useState(-1);
-  console.log("showOndex", showIndex);
 
   return (
     <div className="m-auto">
@@ -67,18 +72,14 @@ const RestaurantMenu = () => {
         <div className="border-dashed border-[1px] border-gray-400"></div>
         <ul className="flex ">
           <li className="m-6">37 MINS</li>
-          <li className="m-6">
-            {restInfo[0]?.card.card.info?.costForTwoMessage}
-          </li>
         </ul>
       </div>
-
       <hr />
       {categories &&
         categories.map((category, index) => (
           //controlled componenet ->Parent is controlling
           <RestaurantCategory
-            key={category.card.card.id}
+            key={category.card.info.id}
             category={category}
             ShowItems={index == showIndex ? true : false}
             //showItems={index == showIndex ? true : false}

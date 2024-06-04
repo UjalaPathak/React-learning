@@ -7,7 +7,7 @@ const ResturantCard = (props) => {
       <div className="max-w-sm relative ">
         <a href="#">
           <img
-            className="  cursor-pointer  rounded-lg w-full h-64 object-cover "
+            className=" cursor-pointer  rounded-lg w-full h-64 object-cover "
             src={
               "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
               resturant.info.cloudinaryImageId

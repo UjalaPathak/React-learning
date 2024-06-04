@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ResturantCard from "./ResturantCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listofRestaurants, setListofRestaurants] = useState([]);
@@ -14,6 +15,7 @@ const Body = () => {
   const checkOnline = useOnlineStatus();
 
   useEffect(() => {
+    console.log("hii");
     fetchData();
   }, []);
 
@@ -39,6 +41,19 @@ const Body = () => {
     setFilteredlistofRestaurants(data2[0]?.restaurants);
   };
   if (checkOnline === false) return <h1>Looks Like You are offline...</h1>;
+  if (listofRestaurants.length === 0) {
+    return <Shimmer />;
+  }
+
+  handleSubmit = () => {
+    console.log("CLICK");
+    setCount(count + 1);
+  };
+
+  handleSubmitdec = () => {
+    console.log("CLICK");
+    setCount(count - 1);
+  };
 
   return (
     <div className="body-container">
@@ -52,20 +67,21 @@ const Body = () => {
         />
         <button
           onClick={() => {
-            const filterData = filteredlistofRestaurants.filter((res) => {
+            const filterData = listofRestaurants.filter((res) => {
               return res.info.name
                 .toLowerCase()
                 .includes(searchInput.toLowerCase());
             });
             setListofRestaurants(filterData);
+            setFilteredlistofRestaurants(filterData);
           }}
         >
           Search
         </button>
       </div>
       <div className="grid  grid-cols-1  md:grid-cols-2 lg:grid-cols-4 lg:gap-4 justify-items-center ">
-        {listofRestaurants &&
-          listofRestaurants.map((resturant) => (
+        {filteredlistofRestaurants &&
+          filteredlistofRestaurants.map((resturant) => (
             <Link to={"/resturant/" + resturant.info.id}>
               <ResturantCard Key={resturant.info.id} resturant={resturant} />
             </Link>

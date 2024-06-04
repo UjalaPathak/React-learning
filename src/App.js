@@ -9,15 +9,22 @@ import ContactUs from "./Components/ContactUs";
 import Cart from "./Components/Cart";
 import Error from "./Components/Error";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+
+
 //import Gorcery from "./Gorcery"
 
 //jsx->syntax (html or xml like)
 const AppLayoutComponent = () => {
   return (
+    <Provider store={appStore}>
+   
     <div>
       <Header />
       <Outlet />
     </div>
+    </Provider>
   );
 };
 

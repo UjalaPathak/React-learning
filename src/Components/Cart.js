@@ -1,8 +1,10 @@
-const Cart = () =>{
-    return(
-        <div>
-        <h1>Cart</h1>
-        </div>
-    )
-}
+import CartItems from "./CartItems";
+
+const Cart = () => {
+  return (
+    <div>
+      <CartItems />
+    </div>
+  );
+};
 export default Cart;

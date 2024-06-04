@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnaction, setButAction] = useState("Login");
+  const cartItems = useSelector((store) => store.cart.item);
+  console.log("cartItems", cartItems);
   return (
     <div className="flex justify-between">
       <div>
@@ -24,7 +27,7 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li className="px-4">
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart {cartItems.length} </Link>
           </li>
           <li className="px-4">
             <Link to="/Gorcery">Gorcery</Link>

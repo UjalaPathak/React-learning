@@ -2,7 +2,8 @@ import { useState } from "react";
 import RestaurantMenuCards from "../ResturantMenuCards";
 
 const RestaurantCategory = (props) => {
-  const itemCard = props.category.card.card;
+  console.log("props", props);
+  const itemCard = props.category.card.info;
 
   // const [show, setShowItem] = useState(false);
   const handleClick = () => {

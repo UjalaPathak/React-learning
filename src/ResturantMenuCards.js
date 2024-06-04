@@ -1,4 +1,5 @@
 const RestaurantMenuCards = (props) => {
+  console.log("props", props);
   const { name, price, defaultPrice, description, imageId } =
     props.items.card.info;
 
