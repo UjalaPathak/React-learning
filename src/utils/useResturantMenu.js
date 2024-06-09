@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const useResturantMenu = (resId) => {
-  const [menuData, SetMenuData] = useState({});
+  const [menuData, SetMenuData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -23,7 +23,6 @@ const useResturantMenu = (resId) => {
       console.error("Error fetching data:", error);
     }
   };
-
   return menuData;
 };
 
