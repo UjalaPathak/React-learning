@@ -1,5 +1,6 @@
 import { Icon } from "semantic-ui-react";
 
+//cards you see on the first page
 const ResturantCard = (props) => {
   const { resturant } = props;
   return (
@@ -56,7 +57,6 @@ const ResturantCard = (props) => {
           <h4 className="  whitespace-nowrap truncate ...">
             {resturant.info.cuisines.join(",")}
           </h4>
-
           <h4 className="">{resturant.info.areaName}</h4>
         </div>
       </div>

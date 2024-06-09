@@ -45,16 +45,6 @@ const Body = () => {
     return <Shimmer />;
   }
 
-  handleSubmit = () => {
-    console.log("CLICK");
-    setCount(count + 1);
-  };
-
-  handleSubmitdec = () => {
-    console.log("CLICK");
-    setCount(count - 1);
-  };
-
   return (
     <div className="body-container">
       <div className="search-input">
