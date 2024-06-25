@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnaction, setButAction] = useState("Login");
   const cartItems = useSelector((store) => store.cart.item);
-  console.log("cartItems", cartItems);
+
+  const onlineStatus = useOnlineStatus();
+
   return (
     <div className="flex justify-between">
       <div>
@@ -17,6 +20,7 @@ const Header = () => {
       </div>
       <div className="flex items-center ">
         <ul className="flex p-4 m-4">
+          <li>online status:{onlineStatus ? "🥎" : "🔴"}</li>
           <li className="px-4">
             <Link to="/">Home</Link>
           </li>

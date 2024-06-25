@@ -23,6 +23,8 @@ const useResturantMenu = (resId) => {
       console.error("Error fetching data:", error);
     }
   };
+
+  //return { menuData: menuData };
   return menuData;
 };
 

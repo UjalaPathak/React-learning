@@ -12,10 +12,8 @@ const RestaurantMenu = () => {
 
   //custom hooks
   const menuData = useResturantMenu(resId);
-  // useEffect(() => {}, [menuData]);
+  useEffect(() => {}, [menuData]);
 
-  const { name, cuisines, locality, avgRating, totalRatingsString } =
-    menuData[2].card.card.info;
   const categories = menuData[4]?.groupedCard?.cardGroupMap?.REGULAR.cards;
 
   // const restaurantLicense =
@@ -41,9 +39,15 @@ const RestaurantMenu = () => {
     <div className="m-auto">
       <div className="w-6/12  mx-auto">
         <div className="inline-block">
-          <span className="font-semibold text-xl">{name}</span>
-          <p className="mb-1 text-xs text-gray-600/75">{cuisines.join(", ")}</p>
-          <p className=" text-xs text-gray-600/75">{locality}</p>
+          <span className="font-semibold text-xl">
+            {menuData[2].card.card.info.name}
+          </span>
+          <p className="mb-1 text-xs text-gray-600/75">
+            {menuData[2].card.card.info.cuisines.join(", ")}
+          </p>
+          <p className=" text-xs text-gray-600/75">
+            {menuData[2].card.card.info.locality}
+          </p>
         </div>
 
         <div className="border border-solid border-gray-300 shadow-md rounded-md flex flex-col text-center p-2 max-w-max float-right">
@@ -51,9 +55,13 @@ const RestaurantMenu = () => {
             <span className="inline-block mr-2">
               <FaStar style={{ color: "green" }} />
             </span>
-            <span className="font-semibold">{avgRating}</span>
+            <span className="font-semibold">
+              {menuData[2].card.card.info.avgRating}
+            </span>
             <hr />
-            <span className="font-semibold">{totalRatingsString}</span>
+            <span className="font-semibold">
+              {menuData[2].card.card.info.totalRatingsString}
+            </span>
           </div>
         </div>
       </div>
@@ -74,7 +82,7 @@ const RestaurantMenu = () => {
             category={category}
             // ShowItems={index == showIndex ? true : false}
             showItems={index == showIndex ? true : false}
-            setShowIndex={() => setShowIndex(index)}
+            //setShowIndex={() => setShowIndex(index)}
           />
         ))}
     </div>

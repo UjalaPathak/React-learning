@@ -10,6 +10,7 @@ const Body = () => {
     []
   );
   const [searchInput, setSearchInput] = useState([]);
+  console.log("listofRestaurants", listofRestaurants);
 
   //custome hooks
   const checkOnline = useOnlineStatus();
